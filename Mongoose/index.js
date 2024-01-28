@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
     age: Number
 })
 
+
 const User = mongoose.model("User", userSchema);
 // // const Employee = mongoose.model("Employee", userSchema);
 
@@ -46,9 +47,9 @@ const User = mongoose.model("User", userSchema);
 //     console.log(data);
 // })
 
-User.deleteOne({ name: "Tony" }).then((data) => {
-    console.log(data);
-})
-User.deleteMany({ name: "bruce" }).then((data) => {
-    console.log(data);
-})
+// User.deleteOne({ name: "Tony" }).then((data) => {
+//     console.log(data);
+// })
+// User.deleteMany({ name: "bruce" }).then((data) => {
+//     console.log(data);
+// })

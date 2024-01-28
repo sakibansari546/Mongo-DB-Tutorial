@@ -59,7 +59,6 @@ Mongoose lets you start using your models immediatly, without waiting for mongoo
 model.find() // returns a Query Object (thennable)
 ``````
 *Mongoose Queries are not promises, But they have a.then()
-#### Command --> find()
 ``````
 User.find().then((data)=>{
     console.log(data);
@@ -72,5 +71,48 @@ User.find({ age:{$gte : 46} }).then(data)=>{
 };
 ``````
 
+``````
+model.findOne() // returns a single result
+``````
+``````
+User.findOne({ age:{$gte : 46} }).then(data)=>{
+    console.log(data);
+};
+``````
 
+### Delete
+``````
+model.deleteOne() // returns count
+``````
+``````
+User.deleteOne({name: "Tony"}).then((data)=>{
+    console.log(data);
+})
+``````
 
+``````
+model.deleteMany() // returns count
+``````
+``````
+User.deleteMany({age: {$gt : 34}}).then((data)=>{
+    console.log(data);
+})
+``````
+
+## Schema validation
+Basically, Rules for Schema
+
+``````
+const booksSchema = mongooes.Schema({
+    title:{
+        type:String,
+        required: true
+    },
+    author:{
+        type:String
+    },
+    price:{
+        type:Number,
+    }
+});
+``````

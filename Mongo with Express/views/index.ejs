@@ -5,10 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>server starting~!</h1>
+    <h3>All - chats</h3>
+    <form method="get" action="/chats/new">
+        <button>New Msg~</button>
+    </form>
+    <% chats.forEach(chat=> { %>
+        <div>
+            <p>From : <%= chat.from %>
+            </p>
+            <p>Massage : <%= chat.msg %>
+            </p>
+            <p>To : <%= chat.from %>
+            </p>
+            <p>
+                <%= chat.created_at %>
+            </p>
+            <button><a href="http://localhost:8080/chats/<%= chat._id %>/edit">Edit</a></button>
+            <form action="/chats/<%= chat._id %>?_method=DELETE" method="post">
+                <button id="deleteChat">Delete</button>
+            </form>
+        </div>
+        <% }); %>
+
+
+
+            <script>
+                let deleteChat = document.querySelector("#deleteChat");
+                deleteChat.addEventListener("click", () => {
+                    let con = confirm("are you sure");
+                    console.log(con);
+                })
+            </script>
 </body>
 
 </html>
