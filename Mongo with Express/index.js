@@ -53,6 +53,12 @@ app.get('/chats/:id/edit', async (req, res) => {
 });
 app.put('/chats/:id', async (req, res) => {
     let { id } = req.params;
+    let chat = await db.Chat.findById(id);
+    res.render("index.ejs", { chat })
+
+});
+app.put('/chats/:id', async (req, res) => {
+    let { id } = req.params;
     let { msg: newMsg } = req.body;
     let updatedChat = await Chat.findByIdAndUpdate(id, { msg: newMsg }, { runValidators: true, new: true });
     console.log(updatedChat);

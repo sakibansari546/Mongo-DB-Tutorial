@@ -25,6 +25,9 @@
                 <%= chat.created_at %>
             </p>
             <button><a href="http://localhost:8080/chats/<%= chat._id %>/edit">Edit</a></button>
+
+            <button><a href="http://localhost:8080/chats/<%= chat._id %>">Show</a></button>
+
             <form action="/chats/<%= chat._id %>?_method=DELETE" method="post">
                 <button id="deleteChat">Delete</button>
             </form>
